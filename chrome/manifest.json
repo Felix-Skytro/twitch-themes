@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Twitch Themes",
+  "version": "1.0",
+  "description": "Give Twitch.tv a new look on special events like Haloween, Christmas and more. Just like every other plattform is doing too!",
+  "permissions": ["activeTab", "storage"],
+  "background": {
+    "service_worker": "./source/static/scripts/background_worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.twitch.tv/*"],
+      "css": ["./source/static/styles/re-style.css"],
+      "js": ["./source/static/scripts/content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "./source/popup.html",
+    "default_icon": {
+      "16": "./source/static/icons/placeholder_16.png",
+      "48": "./source/static/icons/placeholder_48.png",
+      "128": "./source/static/icons/placeholder_128.png"
+    }
+  }
+}
